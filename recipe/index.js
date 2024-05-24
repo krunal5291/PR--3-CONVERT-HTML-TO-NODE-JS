@@ -2,7 +2,7 @@ const express = require('express');
 const isvelid = require('./middleware');
 
 const app = express();
-app.use(express.json()); // Correctly using JSON middleware
+app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
 let initialRecipe = [
@@ -56,7 +56,8 @@ app.patch('/recipe/update/:id', (req, res) => {
   if (recipeIndex !== -1) {
     initialRecipe[recipeIndex] = { ...initialRecipe[recipeIndex], ...req.body };
     res.send("Recipe updated successfully");
-  } else {
+  }
+   else {
     res.status(404).send("Recipe not found");
   }
 });
